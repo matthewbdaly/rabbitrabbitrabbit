@@ -2,7 +2,7 @@ $(document).ready(function () {
     'use strict';
 
     // Declare variables used
-    var App, app, Message, Messages, MessageView, messages = [], socket, field, sendButton, content;
+    var App, app, Message, Messages, MessageView, MessageListView, messages = [], socket, field, sendButton, content;
 
     // Model for messages
     Message = Backbone.Model.extend({
@@ -35,6 +35,30 @@ $(document).ready(function () {
 
             // Return the object
             return this;
+        }
+    });
+
+    // View for message list
+    MessageListView = Backbone.View.extend({
+        intialize: function () {
+            // Set up event listeners
+            this.collection.on('sync', this.render);
+            this.collection.on('add', this.render);
+        },
+
+        render: function () {
+
+            // Cache selector
+            this.container = $('ul#content');
+
+            // Empty out any existing content
+            this.container.empty();
+
+            // Render messages
+            this.collection.each(function (message) {
+                var view = new MessageView({ model: message });
+                this.container.append(view.render().el);
+            }, this);
         }
     });
 
