@@ -23,6 +23,21 @@ $(document).ready(function () {
         url: '/messsages'
     });
 
+    // View for messages
+    MessageView = Backbone.View.extend({
+        tagName: 'li',
+
+        render: function () {
+
+            // Create the HTML
+            var template = _.template('<%= text %>');
+            this.$el.html(template(this.model.toJSON()));
+
+            // Return the object
+            return this;
+        }
+    });
+
     // Set variables
     socket = io.connect('http://localhost:5000');
     field = $('input#field');
