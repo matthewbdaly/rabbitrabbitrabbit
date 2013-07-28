@@ -1,7 +1,7 @@
 {
   "name": "rabbitrabbitrabbit",
   "version": "0.0.0",
-  "description": "Real time comment system",
+  "description": "Real time web-based forum",
   "main": "index.js",
   "dependencies": {
       "socket.io": "latest",
