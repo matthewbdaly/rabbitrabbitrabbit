@@ -28,11 +28,10 @@ app.get("/", function (req, res) {
 
 app.get("/messages", function (req, res) {
     Message.find(function (err, messages) {
-        console.log(messages);
         if (err) {
             console.log('Error: ' + err);
         } else {
-            res.json({messages: messages});
+            res.json(messages);
         }
     });
 });

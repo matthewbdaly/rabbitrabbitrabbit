@@ -20,7 +20,7 @@ $(document).ready(function () {
         model: Message,
 
         // Set URL
-        url: '/messsages'
+        url: '/messages'
     });
 
     // View for messages
@@ -93,6 +93,19 @@ $(document).ready(function () {
         },
 
         index: function () {
+            // Declare variables
+            var messagelistview, messagelist;
+
+            // Set messagelist
+            messagelist = new Messages();
+
+            // Populate the message list
+            messagelist.fetch()
+                .complete(function () {
+                    // Render message mist
+                    messagelistview = new MessageListView({ collection: messagelist });
+                    messagelistview.render()
+                });
         }
     });
 
