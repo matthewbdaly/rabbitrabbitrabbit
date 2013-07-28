@@ -2,7 +2,26 @@ $(document).ready(function () {
     'use strict';
 
     // Declare variables used
-    var messages = [], socket, field, sendButton, content;
+    var Message, Messages, MessageView, messages = [], socket, field, sendButton, content;
+
+    // Model for messages
+    Message = Backbone.Model.extend({
+
+        // Default values
+        defaults: {
+            text: ''
+        }
+    });
+
+    // Collection for messages
+    Messages = Backbone.Collection.extend({
+
+        // Will hold Message objects
+        model: Message,
+
+        // Set URL
+        url: '/messsages'
+    });
 
     // Set variables
     socket = io.connect('http://localhost:5000');
