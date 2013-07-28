@@ -2,7 +2,7 @@
 "use strict";
 
 // Declare variables used
-var app, express, port;
+var app, express, io, port;
 
 // Define values
 express = require("express");
@@ -23,5 +23,12 @@ app.get("/", function (req, res) {
 app.use(express.static(__dirname + '/public'));
 
 // Listen
-app.listen(port);
+io = require('socket.io').listen(app.listen(port));
 console.log("Listening on port " + port);
+
+// Handle new comments
+io.sockets.on('connection', function (socket) {
+    socket.on('send', function (data) {
+        io.sockets.emit('message', data);
+    });
+});
