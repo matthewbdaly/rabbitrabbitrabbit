@@ -2,7 +2,7 @@ $(document).ready(function () {
     'use strict';
 
     // Declare variables used
-    var Message, Messages, MessageView, messages = [], socket, field, sendButton, content;
+    var App, app, Message, Messages, MessageView, messages = [], socket, field, sendButton, content;
 
     // Model for messages
     Message = Backbone.Model.extend({
@@ -60,4 +60,18 @@ $(document).ready(function () {
         socket.emit('send', { message: text });
         field.val('');
     });
+
+    // Main view
+    App = Backbone.Router.extend({
+
+        routes: {
+            "": "index"
+        },
+
+        index: function () {
+        }
+    });
+
+    app = new App();
+    Backbone.history.start();
 });
