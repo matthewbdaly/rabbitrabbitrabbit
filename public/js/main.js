@@ -8,17 +8,14 @@ $(document).ready(function () {
     socket = io.connect('http://localhost:5000');
     field = $('input#field');
     sendButton = $('input#send');
-    content = $('div#content');
+    content = $('ul#content');
 
     // Handle new posts
     socket.on('message', function (data) {
         if (data.message) {
             messages.push(data.message);
-            var html = '';
-            _.each(messages, function (message) {
-                html += message + '<br />';
-            });
-            content.html(html);
+            var html = '<li>' + data.message + '</li>';
+            content.append(html);
         } else {
             console.log('There is a problem:', data);
         }
