@@ -10,7 +10,10 @@ $(document).ready(function () {
         // Default values
         defaults: {
             text: ''
-        }
+        },
+
+        // Prevent submit
+        sync: function () { return false; }
     });
 
     // Collection for messages
@@ -43,7 +46,7 @@ $(document).ready(function () {
         intialize: function () {
             // Set up event listeners
             this.collection.on('sync', this.render);
-            this.collection.on('add', this.render);
+            this.collection.on('create', this.render);
         },
 
         render: function () {
@@ -67,17 +70,6 @@ $(document).ready(function () {
     field = $('input#field');
     sendButton = $('input#send');
     content = $('ul#content');
-
-    // Handle new posts
-    socket.on('message', function (data) {
-        if (data.message) {
-            messages.push(data.message);
-            var html = '<li>' + data.message + '</li>';
-            content.append(html);
-        } else {
-            console.log('There is a problem:', data);
-        }
-    });
 
     sendButton.on('click', function () {
         var text = field.val();
@@ -105,6 +97,16 @@ $(document).ready(function () {
                     // Render message mist
                     messagelistview = new MessageListView({ collection: messagelist });
                     messagelistview.render()
+
+                    // Handle new posts
+                    socket.on('message', function (data) {
+                        if (data.message) {
+                            messagelist.create({text: data.message});
+                            messagelistview.render();
+                        } else {
+                            console.log('There is a problem:', data);
+                        }
+                    });
                 });
         }
     });
