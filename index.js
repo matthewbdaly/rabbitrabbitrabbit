@@ -7,7 +7,7 @@ var app, express, io, port;
 // Define values
 express = require("express");
 app = express();
-port = 3700;
+port = process.env.PORT || 5000;
 
 // Set up templating
 app.set('views', __dirname + '/views');

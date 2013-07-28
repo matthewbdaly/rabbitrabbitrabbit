@@ -5,7 +5,7 @@ $(document).ready(function () {
     var messages = [], socket, field, sendButton, content;
 
     // Set variables
-    socket = io.connect('http://localhost:3700');
+    socket = io.connect('http://localhost:5000');
     field = $('input#field');
     sendButton = $('input#send');
     content = $('div#content');
