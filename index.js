@@ -26,6 +26,17 @@ app.get("/", function (req, res) {
     res.render("index");
 });
 
+app.get("/messages", function (req, res) {
+    Message.find(function (err, messages) {
+        console.log(messages);
+        if (err) {
+            console.log('Error: ' + err);
+        } else {
+            res.json({messages: messages});
+        }
+    });
+});
+
 // Serve static files
 app.use(express.static(__dirname + '/public'));
 
