@@ -1,4 +1,4 @@
 RabbitRabbitRabbit
 ------------------
 
-A simple real-time web-based forum built using Node.js
+A simple real-time web-based guestbook built using Node.js
