@@ -27,5 +27,6 @@ $(document).ready(function () {
     sendButton.on('click', function () {
         var text = field.val();
         socket.emit('send', { message: text });
+        field.val('');
     });
 });
