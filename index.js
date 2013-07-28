@@ -19,6 +19,9 @@ app.get("/", function (req, res) {
     res.render("index");
 });
 
+// Serve static files
+app.use(express.static(__dirname + '/public'));
+
 // Listen
 app.listen(port);
 console.log("Listening on port " + port);
