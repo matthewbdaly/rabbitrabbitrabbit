@@ -23,15 +23,6 @@ app.engine('jade', require('jade').__express);
 
 // Define routes
 app.get("/", function (req, res) {
-    // Declare array for existing messages
-    var message, messageArray = [];
-
-    // Get all existing messages
-    Message.find(function (err, messages) {
-        for (message in messages) {
-            messageArray.push(messages[message].text);
-        }
-    });
     res.render("index");
 });
 
