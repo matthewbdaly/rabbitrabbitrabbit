@@ -11,3 +11,13 @@ describe('Test the index route', function () {
         });
     });
 });
+
+// Test the messages route
+describe('Test the messages route', function () {
+    it("should return JSON", function (done) {
+        request.get({ url: 'http://localhost:5000/messages' }, function (error, response, body) {
+            assert.equal(response.headers['content-type'], 'application/json');
+            done();
+        });
+    });
+});
