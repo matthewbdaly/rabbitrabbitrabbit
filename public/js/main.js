@@ -96,7 +96,7 @@ $(document).ready(function () {
                 .complete(function () {
                     // Render message mist
                     messagelistview = new MessageListView({ collection: messagelist });
-                    messagelistview.render()
+                    messagelistview.render();
 
                     // Handle new posts
                     socket.on('message', function (data) {
