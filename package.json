@@ -11,7 +11,8 @@
   },
   "devDependencies": {
       "mocha": "latest",
-      "chai": "latest"
+      "chai": "latest",
+      "request": "latest"
   },
   "engines": {
     "node": "0.10.x",
