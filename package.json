@@ -7,8 +7,11 @@
       "socket.io": "latest",
       "express": "latest",
       "jade": "latest",
-      "mocha": "latest",
       "mongoose": "latest"
+  },
+  "devDependencies": {
+      "mocha": "latest",
+      "chai": "latest"
   },
   "engines": {
     "node": "0.10.x",
