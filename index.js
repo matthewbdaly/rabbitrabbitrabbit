@@ -8,10 +8,11 @@ var app, express, io, mongoose, port;
 express = require("express");
 app = express();
 mongoose = require('mongoose');
+var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/rabbitrabbitrabbit';
 port = process.env.PORT || 5000;
 
 // Connect to the database
-mongoose.connect('mongodb://localhost/rabbitrabbitrabbit');
+mongoose.connect(uristring);
 
 // Create a model for the messages
 var Message = mongoose.model('Message', { text: String });
