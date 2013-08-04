@@ -66,7 +66,7 @@ $(document).ready(function () {
     });
 
     // Set variables
-    socket = io.connect('http://localhost');
+    socket = io.connect(window.location.href);
     field = $('input#field');
     sendButton = $('input#send');
     content = $('ul#content');
