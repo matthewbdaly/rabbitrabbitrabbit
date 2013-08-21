@@ -2,6 +2,18 @@
 var assert = require('chai').assert,
     request = require('request');
 
+// Beforehand, start the server
+before(function (done) {
+    console.log('Starting the server');
+    done();
+});
+
+// Afterwards, stop the server
+after(function (done) {
+    console.log('Stopping the server');
+    done();
+});
+
 // Test the index route
 describe('Test the index route', function () {
     it("should return a page with the title RabbitRabbitRabbit", function (done) {
