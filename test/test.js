@@ -24,6 +24,8 @@ describe('Test the index route', function () {
     it("should return a page with the title RabbitRabbitRabbit", function (done) {
         request.get({ url: 'http://localhost:5000' }, function (error, response, body) {
             assert.include(body, 'RabbitRabbitRabbit', 'Response contains the string "RabbitRabbitRabbit"');
+            assert.equal(response.statusCode, '200');
+            assert.equal(response.headers['content-type'], 'text/html; charset=utf-8');
             done();
         });
     });
@@ -33,6 +35,7 @@ describe('Test the index route', function () {
 describe('Test the messages route', function () {
     it("should return JSON", function (done) {
         request.get({ url: 'http://localhost:5000/messages' }, function (error, response, body) {
+            assert.equal(response.statusCode, '200');
             assert.equal(response.headers['content-type'], 'application/json');
             done();
         });
