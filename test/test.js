@@ -1,17 +1,21 @@
 // Declare the variables used
 var assert = require('chai').assert,
-    request = require('request');
+    request = require('request'),
+    server = require('../index');
 
-// Beforehand, start the server
-before(function (done) {
-    console.log('Starting the server');
-    done();
-});
+// Server tasks
+describe('server', function () {
+    // Beforehand, start the server
+    before(function (done) {
+        console.log('Starting the server');
+        done();
+    });
 
-// Afterwards, stop the server
-after(function (done) {
-    console.log('Stopping the server');
-    done();
+    // Afterwards, stop the server
+    after(function (done) {
+        console.log('Stopping the server');
+        done();
+    });
 });
 
 // Test the index route
