@@ -10,6 +10,7 @@
   },
   "dependencies": {
       "socket.io": "latest",
+      "socket.io-client": "latest",
       "express": "latest",
       "jade": "latest",
       "mongoose": "latest"
