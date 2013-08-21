@@ -5,6 +5,10 @@ var MessageView, MessageListView;
 MessageView = Backbone.View.extend({
     tagName: 'li',
 
+    attributes: {
+        class: 'list-group-item'
+    },
+
     render: function () {
 
         // Create the HTML
