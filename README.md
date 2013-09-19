@@ -1,7 +1,7 @@
 RabbitRabbitRabbit
 ------------------
 
-A simple real-time web-based guestbook built using Node.js. Requires MongoDB for storing the data.
+A simple real-time web-based guestbook built using Node.js and using Bootstrap for the front end. Requires MongoDB for storing the data.
 
 Demo
 ====
