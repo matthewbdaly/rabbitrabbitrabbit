@@ -1,5 +1,5 @@
 // Declare the variables used
-var assert = require('chai').assert,
+var expect = require('chai').expect,
     io = require('socket.io-client'),
     request = require('request'),
     server = require('../index');
@@ -23,9 +23,9 @@ describe('server', function () {
 describe('Test the index route', function () {
     it("should return a page with the title RabbitRabbitRabbit", function (done) {
         request.get({ url: 'http://localhost:5000' }, function (error, response, body) {
-            assert.include(body, 'RabbitRabbitRabbit', 'Response contains the string "RabbitRabbitRabbit"');
-            assert.equal(response.statusCode, '200');
-            assert.equal(response.headers['content-type'], 'text/html; charset=utf-8');
+            expect(body).to.include('RabbitRabbitRabbit');
+            expect(response.statusCode).to.equal(200);
+            expect(response.headers['content-type']).to.equal('text/html; charset=utf-8');
             done();
         });
     });
@@ -35,8 +35,8 @@ describe('Test the index route', function () {
 describe('Test the messages route', function () {
     it("should return JSON", function (done) {
         request.get({ url: 'http://localhost:5000/messages' }, function (error, response, body) {
-            assert.equal(response.statusCode, '200');
-            assert.include(response.headers['content-type'], 'application/json');
+            expect(response.statusCode).to.equal(200);
+            expect(response.headers['content-type']).to.include('application/json');
             done();
         });
     });
@@ -54,7 +54,7 @@ describe('Test sending a message', function () {
 
         // Handle the message being received
         socket.on('message', function (data) {
-            assert.include(data.message, 'Message received');
+            expect(data.message).to.include('Message received');
             done();
         });
 
