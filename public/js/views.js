@@ -2,27 +2,18 @@
 var MessageView, MessageListView;
 
 // View for messages
-MessageView = Backbone.View.extend({
-    template: _.template('<%= text %>'),
+MessageView = Backbone.Marionette.ItemView.extend({
+    template: '#message-item',
 
     tagName: 'li',
 
-    attributes: {
-        class: 'list-group-item'
-    },
-
-    render: function () {
-
-        // Create the HTML
-        this.$el.html(this.template(this.model.toJSON()));
-
-        // Return the object
-        return this;
-    }
+    className: 'list-group-item'
 });
 
 // View for message list
-MessageListView = Backbone.View.extend({
+MessageListView = Backbone.Marionette.CollectionView.extend({
+    itemView: MessageView,
+
     intialize: function () {
         // Set up event listeners
         this.collection.on('sync', this.render);
