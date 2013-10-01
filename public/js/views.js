@@ -3,6 +3,8 @@ var MessageView, MessageListView;
 
 // View for messages
 MessageView = Backbone.View.extend({
+    template: _.template('<%= text %>'),
+
     tagName: 'li',
 
     attributes: {
@@ -12,8 +14,7 @@ MessageView = Backbone.View.extend({
     render: function () {
 
         // Create the HTML
-        var template = _.template('<%= text %>');
-        this.$el.html(template(this.model.toJSON()));
+        this.$el.html(this.template(this.model.toJSON()));
 
         // Return the object
         return this;
