@@ -2,6 +2,7 @@
 var expect = require('chai').expect,
     io = require('socket.io-client'),
     request = require('request'),
+    sinon = require('sinon'),
     server = require('../index');
 
 // Server tasks
