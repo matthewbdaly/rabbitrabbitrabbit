@@ -3,22 +3,23 @@
   "version": "0.0.0",
   "description": "Real time web-based forum",
   "main": "index.js",
-  "repository" :
-  {
-      "type": "git",
-      "url": "git@github.com:matthewbdaly/rabbitrabbitrabbit.git"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:matthewbdaly/rabbitrabbitrabbit.git"
   },
   "dependencies": {
-      "socket.io": "latest",
-      "socket.io-client": "latest",
-      "express": "latest",
-      "jade": "latest",
-      "mongoose": "latest"
+    "socket.io": "latest",
+    "socket.io-client": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "mongoose": "latest"
   },
   "devDependencies": {
-      "mocha": "latest",
-      "chai": "latest",
-      "request": "latest"
+    "mocha": "latest",
+    "chai": "latest",
+    "request": "latest",
+    "sinon-mocha": "0.0.3",
+    "sinon": "~1.7.3"
   },
   "engines": {
     "node": "0.10.x",
