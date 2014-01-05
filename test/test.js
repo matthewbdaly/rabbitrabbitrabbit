@@ -1,6 +1,7 @@
 // Declare the variables used
 var expect = require('chai').expect,
     io = require('socket.io-client'),
+    mongoose = require('mongoose'),
     request = require('request'),
     sinon = require('sinon'),
     server = require('../index');
@@ -27,7 +28,7 @@ describe('server', function () {
                 expect(response.statusCode).to.equal(200);
                 expect(response.headers['content-type']).to.equal('text/html; charset=utf-8');
                 done();
-                });
+            });
         });
     });
 
@@ -38,7 +39,7 @@ describe('server', function () {
                 expect(response.statusCode).to.equal(200);
                 expect(response.headers['content-type']).to.include('application/json');
                 done();
-                });
+            });
         });
     });
 
@@ -50,7 +51,7 @@ describe('server', function () {
                 'reconnection delay' : 0,
                 'reopen delay' : 0,
                 'force new connection' : true
-                });
+            });
 
             // Handle the message being received
             socket.on('message', function (data) {
