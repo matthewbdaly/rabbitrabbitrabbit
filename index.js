@@ -1,4 +1,4 @@
-// Use strict
+/*jslint node: true */
 "use strict";
 
 // Declare variables used

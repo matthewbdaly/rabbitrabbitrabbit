@@ -1,3 +1,6 @@
+/*jslint node: true */
+"use strict";
+
 // Declare the variables used
 var expect = require('chai').expect,
     io = require('socket.io-client'),
