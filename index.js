@@ -15,7 +15,10 @@ port = process.env.PORT || 5000;
 mongoose.connect(uristring);
 
 // Create a model for the messages
-var Message = mongoose.model('Message', { text: String });
+var MessageSchema = mongoose.Schema({
+    text: String
+});
+var Message = mongoose.model('Message', MessageSchema);
 
 // Set up templating
 app.set('views', __dirname + '/views');
