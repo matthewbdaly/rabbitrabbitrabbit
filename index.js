@@ -65,9 +65,11 @@ io.sockets.on('connection', function (socket) {
         newmessage = new Message({ text: data.message });
         newmessage.save(function (err) {
             if (err) {
-                console.log('Error: ' + err);
+                // Emit the error
+                data.error = 'Error: ' + err;
+                data.message = null;
+                io.sockets.emit('error', data);
             } else {
-                // Emit the message
                 io.sockets.emit('message', data);
             }
         });

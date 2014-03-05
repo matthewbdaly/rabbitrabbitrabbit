@@ -35,13 +35,13 @@ App = Backbone.Router.extend({
                 messagelistview = new MessageListView({ collection: messagelist });
                 messagelistview.render();
 
-                // Handle new posts
+                // Handle new posts and errors
                 socket.on('message', function (data) {
-                    if (data.message) {
+                    if (data.error) {
+                        alert('Your message must be at least one character long and not contain whitespace only');
+                    } else {
                         messagelist.create({text: data.message});
                         messagelistview.render();
-                    } else {
-                        console.log('There is a problem:', data);
                     }
                 });
             });

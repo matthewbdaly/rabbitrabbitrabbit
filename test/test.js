@@ -66,4 +66,25 @@ describe('server', function () {
             socket.emit('send', { message: 'Message received' });
         });
     });
+
+    // Test sending a whitespace message
+    describe('Test sending a whitespace message', function () {
+        it("should return an error", function (done) {
+            // Connect to server
+            var socket = io.connect('http://localhost:5000', {
+                'reconnection delay' : 0,
+                'reopen delay' : 0,
+                'force new connection' : true
+            });
+
+            // Handle the message being received
+            socket.on('error', function (data) {
+                expect(data.error).to.be.ok;
+                done();
+            });
+
+            // Send the message
+            socket.emit('send', { message: '   ' });
+        });
+    });
 });
