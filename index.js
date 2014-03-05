@@ -53,15 +53,18 @@ io.configure(function () {
 // Handle new comments
 io.sockets.on('connection', function (socket) {
     socket.on('send', function (data) {
-        // Emit the message
-        io.sockets.emit('message', data);
+        // If message is one or more characters long...
+        if (data.message.length > 0) {
+            // Emit the message
+            io.sockets.emit('message', data);
 
-        // Also store it in the database
-        var newmessage = new Message({ text: data.message });
-        newmessage.save(function (err) {
-            if (err) {
-                console.log('Error: ' + err);
-            }
-        });
+            // Also store it in the database
+            var newmessage = new Message({ text: data.message });
+            newmessage.save(function (err) {
+                if (err) {
+                    console.log('Error: ' + err);
+                }
+            });
+        }
     });
 });
