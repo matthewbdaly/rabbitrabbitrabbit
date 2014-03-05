@@ -16,7 +16,10 @@ mongoose.connect(uristring);
 
 // Create a model for the messages
 var MessageSchema = mongoose.Schema({
-    text: String
+    text: {
+        type: String,
+        match: /^(\w+)/
+    }
 });
 var Message = mongoose.model('Message', MessageSchema);
 
@@ -56,23 +59,17 @@ io.configure(function () {
 // Handle new comments
 io.sockets.on('connection', function (socket) {
     socket.on('send', function (data) {
-        var newmessage, pattern;
+        var newmessage;
 
-        // Define regex to check message
-        pattern = /^(\w+)/;
-
-        // If message is one or more characters long...
-        if (data.message.match(pattern)) {
-            // Also store it in the database
-            newmessage = new Message({ text: data.message });
-            newmessage.save(function (err) {
-                if (err) {
-                    console.log('Error: ' + err);
-                } else {
-                    // Emit the message
-                    io.sockets.emit('message', data);
-                }
-            });
-        }
+        // Store it in the database
+        newmessage = new Message({ text: data.message });
+        newmessage.save(function (err) {
+            if (err) {
+                console.log('Error: ' + err);
+            } else {
+                // Emit the message
+                io.sockets.emit('message', data);
+            }
+        });
     });
 });
