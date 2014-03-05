@@ -60,14 +60,14 @@ io.sockets.on('connection', function (socket) {
 
         // If message is one or more characters long...
         if (data.message.match(pattern)) {
-            // Emit the message
-            io.sockets.emit('message', data);
-
             // Also store it in the database
             newmessage = new Message({ text: data.message });
             newmessage.save(function (err) {
                 if (err) {
                     console.log('Error: ' + err);
+                } else {
+                    // Emit the message
+                    io.sockets.emit('message', data);
                 }
             });
         }
