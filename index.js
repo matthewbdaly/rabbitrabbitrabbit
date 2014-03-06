@@ -35,6 +35,7 @@ app.get("/", function (req, res) {
 
 app.get("/messages", function (req, res) {
     Message.find(function (err, messages) {
+        /* istanbul ignore if */
         if (err) {
             console.log('Error: ' + err);
         } else {
