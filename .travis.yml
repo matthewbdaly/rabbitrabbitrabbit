@@ -2,6 +2,8 @@ language: node_js
 node_js: 
 - "0.10"
 services: mongodb
+before_install:
+ - npm install -g grunt-cli bower istanbul
 deploy: 
   provider: heroku
   api_key: 
