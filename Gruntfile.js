@@ -6,9 +6,7 @@ module.exports = function (grunt) {
             client: {
                 src: [
                     'Gruntfile.js',
-                    'index.js',
-                    'test/*.js',
-                    'public/js/*.js'
+                    'index.js'
                 ],
                 directives: {
                     browser: false,
