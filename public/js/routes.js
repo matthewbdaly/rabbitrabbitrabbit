@@ -10,7 +10,7 @@ App = Backbone.Router.extend({
 
     index: function () {
         // Declare variables
-        var messagelistview, messagelist, field, sendButton, content, socket;
+        var messagelistview, messagelist, field, sendButton, socket;
 
         // Set messagelist
         messagelist = new Messages();
@@ -19,7 +19,6 @@ App = Backbone.Router.extend({
         socket = io.connect(window.location.href);
         field = $('input#field');
         sendButton = $('input#send');
-        content = $('ul#content');
 
         // Handle sending messages
         sendButton.on('click', function () {
