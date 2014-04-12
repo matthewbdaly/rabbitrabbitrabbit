@@ -29,7 +29,7 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha"
+    "test": "istanbul cover grunt test --verbose"
   },
   "author": "Matthew Daly",
   "license": "GPLv2"

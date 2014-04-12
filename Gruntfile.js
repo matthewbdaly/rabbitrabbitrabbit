@@ -39,12 +39,21 @@ module.exports = function (grunt) {
                     checkstyle: "coverage/checkstyle.xml"
                 }
             }
+        },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'xunit'
+                },
+                src: 'test/test.js'
+            }
         }
     });
 
     // Load tasks
     grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     // Register tasks
-    grunt.registerTask('test', ['jslint', 'jasmine']);
+    grunt.registerTask('test', ['jslint', 'mochaTest']);
 };
