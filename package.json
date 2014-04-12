@@ -19,7 +19,10 @@
     "chai": "latest",
     "request": "latest",
     "sinon-mocha": "0.0.3",
-    "sinon": "~1.7.3"
+    "sinon": "~1.7.3",
+    "grunt-mocha-test": "~0.10.2",
+    "grunt-jslint": "~1.1.8",
+    "grunt": "~0.4.4"
   },
   "engines": {
     "node": "0.10.x",
