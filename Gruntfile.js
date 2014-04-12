@@ -6,19 +6,34 @@ module.exports = function (grunt) {
             client: {
                 src: [
                     'Gruntfile.js',
-                    'index.js'
+                    'index.js',
+                    'test/*.js',
+                    'public/js/*.js'
                 ],
                 directives: {
                     browser: false,
                     node: true,
                     nomen: true,
+                    unparam: true,
+                    sloppy: true,
                     predef: [
                         'jQuery',
                         '$',
                         '_',
                         'window',
                         'module',
-                        'document'
+                        'document',
+                        'it',
+                        'before',
+                        'after',
+                        'describe',
+                        'alert',
+                        'Backbone',
+                        'App',
+                        'Message',
+                        'Messages',
+                        'MessageListView',
+                        'io'
                     ]
                 },
                 options: {
