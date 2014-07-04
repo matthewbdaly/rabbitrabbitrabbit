@@ -20,7 +20,6 @@
     "request": "latest",
     "sinon-mocha": "0.0.3",
     "sinon": "~1.7.3",
-    "grunt-mocha-test": "~0.10.2",
     "grunt-jslint": "~1.1.8",
     "grunt": "~0.4.4"
   },
@@ -29,7 +28,7 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    "test": "istanbul cover grunt test --verbose"
+    "test": "node_modules/mocha/bin/_mocha"
   },
   "author": "Matthew Daly",
   "license": "GPLv2"

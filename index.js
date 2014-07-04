@@ -48,14 +48,9 @@ app.get("/messages", function (req, res) {
 app.use(express.static(__dirname + '/public'));
 
 // Listen
-io = require('socket.io').listen(app.listen(port));
+io = require('socket.io')({
+}).listen(app.listen(port));
 console.log("Listening on port " + port);
-
-// Use long polling as Heroku requires this
-io.configure(function () {
-    io.set("transports", ["xhr-polling"]);
-    io.set("polling duration", 10);
-});
 
 // Handle new comments
 io.sockets.on('connection', function (socket) {
