@@ -39,12 +39,22 @@ module.exports = function (grunt) {
                     checkstyle: "coverage/checkstyle.xml"
                 }
             }
+        },
+        mocha_istanbul: {
+            coverage: {
+                src: 'test', // the folder, not the files,
+                options: {
+                    mask: '*.js',
+                    reportFormats: ['cobertura', 'html']
+                }
+            }
         }
     });
 
     // Load tasks
     grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-mocha-istanbul');
 
     // Register tasks
-    grunt.registerTask('test', ['jslint']);
+    grunt.registerTask('test', ['jslint', 'mocha_istanbul:coverage']);
 };
