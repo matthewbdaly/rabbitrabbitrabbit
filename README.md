@@ -2,6 +2,7 @@ RabbitRabbitRabbit
 ------------------
 
 [![Build Status](https://travis-ci.org/matthewbdaly/rabbitrabbitrabbit.png?branch=master)](https://travis-ci.org/matthewbdaly/rabbitrabbitrabbit)
+[![Coverage Status](https://img.shields.io/coveralls/matthewbdaly/rabbitrabbitrabbit.svg)](https://coveralls.io/r/matthewbdaly/rabbitrabbitrabbit?branch=master)
 
 A simple real-time web-based guestbook built using Node.js and using Bootstrap for the front end. Requires MongoDB for storing the data.
 
