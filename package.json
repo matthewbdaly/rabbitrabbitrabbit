@@ -17,6 +17,7 @@
   "devDependencies": {
     "chai": "latest",
     "grunt": "~0.4.4",
+    "grunt-coveralls": "^1.0.0",
     "grunt-jslint": "~1.1.8",
     "grunt-mocha-istanbul": "^1.5.0",
     "istanbul": "^0.3.0",

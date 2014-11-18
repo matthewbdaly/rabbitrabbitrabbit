@@ -45,16 +45,26 @@ module.exports = function (grunt) {
                 src: 'test', // the folder, not the files,
                 options: {
                     mask: '*.js',
-                    reportFormats: ['cobertura', 'html']
+                    reportFormats: ['cobertura', 'html', 'lcovonly']
                 }
+            }
+        },
+        coveralls: {
+            options: {
+                src: 'coverage/lcov.info',
+                force: false
+            },
+            app: {
+                src: 'coverage/lcov.info'
             }
         }
     });
 
     // Load tasks
     grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-coveralls');
     grunt.loadNpmTasks('grunt-mocha-istanbul');
 
     // Register tasks
-    grunt.registerTask('test', ['jslint', 'mocha_istanbul:coverage']);
+    grunt.registerTask('test', ['jslint', 'mocha_istanbul:coverage', 'coveralls']);
 };
