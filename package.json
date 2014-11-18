@@ -19,11 +19,11 @@
     "grunt": "~0.4.4",
     "grunt-coveralls": "^1.0.0",
     "grunt-jslint": "~1.1.8",
-    "grunt-mocha-istanbul": "^1.5.0",
+    "grunt-mocha-istanbul": "2.2.0",
     "istanbul": "^0.3.0",
     "mocha": "latest",
     "request": "latest",
-    "sinon": "~1.7.3",
+    "sinon": "1.12.1",
     "sinon-mocha": "0.0.3"
   },
   "engines": {
