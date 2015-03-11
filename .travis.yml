@@ -4,10 +4,3 @@ node_js:
 services: mongodb
 before_install:
  - npm install -g grunt-cli bower
-deploy: 
-  provider: heroku
-  api_key: 
-    secure: RTudkesR5dEfXEym7xJPm02fGqaalgDsGgZWVtJwZ4IpXFzKSQF1r7W/goasanR42wXnZSsAxfJtcEwwmS1d41gUyavUWmNniF+f5giDXp2OnRCahW3UxuowHJKcb8Mi0xYiR+Eo1IwAvdeCCdc76vua+knPJbbe5iZcjPSXoxY=
-  app: rabbitrabbitrabbit
-  "on": 
-    repo: matthewbdaly/rabbitrabbitrabbit
