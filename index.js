@@ -2,12 +2,13 @@
 "use strict";
 
 // Declare variables used
-var app, express, io, mongoose, port;
+var app, express, io, morgan, mongoose, port;
 
 // Define values
 express = require("express");
 app = express();
 mongoose = require('mongoose');
+morgan = require('morgan');
 var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/rabbitrabbitrabbit';
 port = process.env.PORT || 5000;
 
@@ -27,6 +28,9 @@ var Message = mongoose.model('Message', MessageSchema);
 app.set('views', __dirname + '/views');
 app.set('view engine', "jade");
 app.engine('jade', require('jade').__express);
+
+// Set up logging
+app.use(morgan('combined'));
 
 // Define routes
 app.get("/", function (req, res) {

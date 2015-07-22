@@ -8,11 +8,12 @@
     "url": "git@github.com:matthewbdaly/rabbitrabbitrabbit.git"
   },
   "dependencies": {
-    "socket.io": "latest",
-    "socket.io-client": "latest",
     "express": "latest",
     "jade": "latest",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "morgan": "^1.6.1",
+    "socket.io": "latest",
+    "socket.io-client": "latest"
   },
   "devDependencies": {
     "chai": "latest",
